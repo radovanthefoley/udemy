@@ -23,10 +23,11 @@ export class GameControlComponent {
     if (!this.isRunning) {
       this.isRunning = true;
       let increment = 0;
+      this.gameEvent.emit(increment);
       this.timer = setInterval(() => {
+        increment++;
         this.gameEvent.emit(increment);
         // console.log(increment);
-        increment++;
       }, 1000);
     }
   }

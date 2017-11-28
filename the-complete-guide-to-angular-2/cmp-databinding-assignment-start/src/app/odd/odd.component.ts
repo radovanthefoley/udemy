@@ -1,19 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-odd',
   template: `
-    <p>
-      odd works!
-    </p>
+      <p class="text-center" style="background-color: beige; margin: 0">
+          {{ number }}
+      </p>
   `,
   styles: []
 })
-export class OddComponent implements OnInit {
+export class OddComponent {
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  @Input()
+  private number: number;
 
 }

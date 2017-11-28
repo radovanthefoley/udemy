@@ -6,4 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  private numbers = [];
+
+  onGameEvent(number: number) {
+    // console.log(number);
+    this.numbers.push(number);
+  }
 }

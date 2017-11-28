@@ -14,7 +14,11 @@
       </ol>
     </div>
     <div class="col-xs-12">
-      <app-game-control></app-game-control>
+      <app-game-control (onGameEvent)="onGameEvent($event)"></app-game-control>
+      <div *ngFor="let number of numbers">
+        <app-odd [number]="number" *ngIf="!(number % 2)"></app-odd>
+        <app-even [number]="number" *ngIf="number % 2"></app-even>
+      </div>
     </div>
   </div>
 </div>

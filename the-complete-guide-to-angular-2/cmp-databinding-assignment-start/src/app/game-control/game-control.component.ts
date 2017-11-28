@@ -25,8 +25,7 @@ export class GameControlComponent {
       let increment = 0;
       this.gameEvent.emit(increment);
       this.timer = setInterval(() => {
-        increment++;
-        this.gameEvent.emit(increment);
+        this.gameEvent.emit(++increment);
         // console.log(increment);
       }, 1000);
     }

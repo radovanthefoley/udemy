@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import Timer = NodeJS.Timer;
 
 @Component({
   selector: 'app-game-control',
@@ -15,23 +16,26 @@ export class GameControlComponent {
   @Output('onGameEvent')
   public gameEvent: EventEmitter<number> = new EventEmitter();
   private isRunning = false;
+  private timer: Timer;
 
   onStart() {
-    console.log('start');
+    // console.log('start');
     if (!this.isRunning) {
       this.isRunning = true;
       let increment = 0;
-      setInterval(() => {
+      this.timer = setInterval(() => {
         this.gameEvent.emit(increment);
+        // console.log(increment);
         increment++;
       }, 1000);
     }
   }
 
   onStop() {
-    console.log('stop');
+    // console.log('stop');
     if (this.isRunning) {
       this.isRunning = false;
+      clearInterval(this.timer);
     }
   }
 
